@@ -49,6 +49,11 @@ const createUser = async (req, res, next) => {
     res.status(201).json({
       message: "User created successfully",
       accessToken: token,
+      user: {
+        _id: newUser._id,
+        name: newUser.name,
+        email: newUser.email
+      }
     });
   } catch (error) {
     console.error("Error creating user:", error);
@@ -92,6 +97,11 @@ const loginUser = async (req, res, next) => {
     res.status(200).json({
       message: "Login successful",
       accessToken: token,
+      user: {
+        _id: user._id,
+        name: user.name,
+        email: user.email
+      }
     });
   } catch (error) {
     console.error("Login error:", error);
